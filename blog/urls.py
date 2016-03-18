@@ -19,4 +19,6 @@ from myblog import views as myblog_views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
 	url(r'^$',myblog_views.home),
+	url(r'^blog/$',myblog_views.blog),
+	url(r'^contact/$',myblog_views.cont),
 ]

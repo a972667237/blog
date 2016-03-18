@@ -1,10 +1,60 @@
 <!DOCTYPE html>
 <html>
-<meta charset='utf-8'>
 <head>
+<meta charset='utf-8'>
 	<title>Wueiz's Blog</title>
 </head>
+<link rel="stylesheet" type="text/css" href="../static/css/style.css">
+<link rel="stylesheet" type="text/css" href="../static/css/reset.css">
+<script type="text/javascript">
+        function tiao()
+        {
+            var s=document.getElementsByName("radio-set");
+            for(i=0;i<s.length;i++)
+            {
+                if(s[i].checked==true)
+                {
+                    window.location.replace('http://'+s[i].value+'');
+                }
+            }
+        }
+        window.onload = function(){
+            thisurl = document.URL.substring(22);
+            var reb = /blog/;
+            var rec = /contact/;
+            if (reb.test(thisurl)) {
+                var c=document.getElementById("li-i2");
+                c.checked=true;
+            }
+            else if(rec.test(thisurl)){
+                var d = document.getElementById("li-i3");
+                d.checked=true;
+            }
+            else{
+                var e = document.getElementById("li-i1");
+                e.checked=true;
+            }
+        }
+</script>
 <body>
-	Welcome to Wueiz's Blog,you can see nothing before i finished the templates！！！
+	<div class="main">
+		<div class="mleft">
+            <ul>
+                <li class="colist" id="cofir">
+                    <input type="radio"  name="radio-set" id="li-i1" value="127.0.0.1:8000" onclick="tiao()">
+                    <a href="#">首页</a>
+                </li>
+                <li class="colist" id="cosec">
+                    <input type="radio"  name="radio-set" id="li-i2" value="127.0.0.1:8000/blog" onclick="tiao()">
+                    <a href="#">日志</a>
+                </li>
+                <li class="colist" id="cothr">
+                    <input type="radio"  name="radio-set" id="li-i3" value="127.0.0.1:8000/contact" onclick="tiao()">
+                    <a href="#">联系方式</a>
+                </li>
+            </ul>      
+        </div>
+		<div class="mright"></div>
+	</div>
 </body>
 </html>
